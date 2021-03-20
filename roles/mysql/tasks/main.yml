@@ -1,0 +1,5 @@
+---
+- name: Install MySQL/MariaDB
+  package:
+    name: default-mysql-server
+    state: present
