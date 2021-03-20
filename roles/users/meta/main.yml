@@ -1,0 +1,6 @@
+---
+dependencies:
+  - openssh
+  - screen
+  - sudo
+  - timezone

@@ -1,0 +1,33 @@
+---
+- name: Set up users
+  user:
+    name: "{{ item }}"
+    password: '*'
+  loop: "{{ users_list }}"
+
+- name: Set up ~/.ssh directories
+  file:
+    path: "~{{ item }}/.ssh"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0700'
+    state: directory
+  loop: "{{ users_list }}"
+
+- name: Set up authorized keys
+  template:
+    src: authorized_keys.j2
+    dest: "~{{ item }}/.ssh/authorized_keys"
+    owner: "{{ item }}"
+    group: "{{ item }}"
+    mode: '0600'
+  loop: "{{ users_list }}"
+
+- name: Set up sudo
+  template:
+    src: sudo.j2
+    dest: "/etc/sudoers.d/{{ item }}"
+    owner: root
+    group: root
+    mode: '0400'
+  loop: "{{ users_list }}"
