@@ -1,0 +1,5 @@
+---
+- name: Install GNU Screen
+  package:
+    name: screen
+    state: present
