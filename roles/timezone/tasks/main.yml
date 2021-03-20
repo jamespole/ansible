@@ -1,0 +1,4 @@
+---
+- name: Set the time zone to Pacific/Auckland
+  timezone:
+    name: Pacific/Auckland
