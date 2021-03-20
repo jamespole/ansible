@@ -1,0 +1,16 @@
+---
+- name: Update the packages cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Upgrade all packages
+  apt:
+    name: '*'
+    state: latest
+    # If the following is not set, Ansible will try and use aptitude.
+    force_apt_get: yes
+
+- name: Remove unused packages
+  apt:
+    autoremove: yes
