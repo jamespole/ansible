@@ -1,0 +1,6 @@
+---
+- name: Install Apache module for PHP
+  package:
+    name: libapache2-mod-php
+    state: present
+  notify: Restart Apache
