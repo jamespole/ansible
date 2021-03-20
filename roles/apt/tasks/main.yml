@@ -2,6 +2,7 @@
 - name: Update the packages cache
   apt:
     update_cache: yes
+    # Only update the cache if it's older than 1 hour (60*60=3600).
     cache_valid_time: 3600
 
 - name: Upgrade all packages
