@@ -1,0 +1,6 @@
+---
+dependencies:
+  - role: apache
+  - role: apt
+  - role: openssh
+  - role: timezone

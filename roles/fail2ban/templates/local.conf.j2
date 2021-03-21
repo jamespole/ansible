@@ -1,0 +1,40 @@
+# {{ ansible_managed }}
+
+[DEFAULT]
+
+# Send mail with whois and log entries.
+action = %(action_mwl)s
+
+# Ignore loopback and Vocus NZ addresses.
+ignoreip = 127.0.0.1/8 ::1 101.98.0.0/16 2404:4400::/28
+
+findtime = 1d
+bantime = 1d
+maxretry = 2
+
+[apache-auth]
+enabled = true
+
+[apache-badbots]
+enabled = true
+
+[apache-botsearch]
+enabled = true
+
+[apache-fakegooglebot]
+enabled = true
+
+[apache-nohome]
+enabled = true
+
+[apache-noscripts]
+enabled = true
+
+[apache-overflows]
+enabled = true
+
+[apache-shellshock]
+enabled = true
+
+[php-url-fopen]
+enabled = true
