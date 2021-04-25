@@ -4,6 +4,7 @@
     update_cache: yes
     # Only update the cache if it's older than 1 hour (60*60=3600).
     cache_valid_time: 3600
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Upgrade all packages
   apt:
@@ -11,7 +12,9 @@
     state: latest
     # If the following is not set, Ansible will try and use aptitude.
     force_apt_get: yes
+  when: ansible_facts['os_family'] == "Debian"
 
 - name: Remove unused packages
   apt:
     autoremove: yes
+  when: ansible_facts['os_family'] == "Debian"
